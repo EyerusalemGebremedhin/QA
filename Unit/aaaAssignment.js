@@ -8,7 +8,7 @@ test('returns Guest when name is empty', () => {
  // Arrange 
  const name = ""; 
  // Act 
- const result = greet(name); cd
+ const result = greet(name); 
  // Assert 
  expect(result).toBe("Guest"); 
 }); 
@@ -74,7 +74,7 @@ test('returns true for valid password length', () => {
 }); 
 
 
-
+        //Stage 3
 
 
 
