@@ -1,131 +1,216 @@
-// JAVASCRPIT FUNCTIONS
-function greet(name) { return name || "Guest"; }
-function toggle(value) { return !value; }
-function addItem(arr, item) { arr.push(item); return arr; }
-function removeItem(arr, item) { return arr.filter(i => i !== item); }
-function isValidPassword(password) { return password.length >= 6; }
-function containsWord(sentence, word) { return sentence.includes(word); }
 
-// STAGE 1 & 2 TESTS
+// STAGE 1 & 2: Fill in the Gaps
+
+
+// 1. Greeting fallback
+function greet(name) { 
+ return name || "Guest"; 
+} 
 test('returns Guest when name is empty', () => { 
-    const name = ""; 
-    const result = greet(name); 
-    expect(result).toBe("Guest"); 
+ // Arrange 
+ const name = ""; 
+ // Act 
+ const result = greet(name); 
+ // Assert 
+ expect(result).toBe("Guest"); 
 }); 
 
+// 2. Boolean toggle 
+function toggle(value) { 
+ return !value; 
+}
 test('toggles boolean value', () => {  
-    const input = true; 
-    const result = toggle(input); 
-    expect(result).toBe(false); 
+ // Arrange 
+ const input = true; 
+ // Act 
+ const result = toggle(input); 
+ // Assert 
+ expect(result).toBe(false); 
 }); 
 
+// 3. Add item to array 
+function addItem(arr, item) { 
+ arr.push(item); 
+ return arr; 
+} 
 test('adds item to array', () => {  
-    const arr = [1, 2]; 
-    const result = addItem(arr, 3); 
-    expect(result).toEqual([1, 2, 3]); 
+ // Arrange 
+ const arr = [4, 6]; 
+ // Act 
+ const result = addItem(arr, 8); 
+ // Assert 
+ expect(result).toEqual([4, 6, 8]); 
 }); 
 
+// 4. Remove item from array 
+function removeItem(arr, item) { return arr.filter(i => i !== item); } 
 test('removes item from array', () => {  
-    const arr = ["apple", "banana"];
-    const result = removeItem(arr, "apple"); 
-    expect(result).toEqual(["banana"]); 
+ // Arrange 
+ const arr = ["pen", "book"];
+ // Act 
+ const result = removeItem(arr, "pen"); 
+ // Assert 
+ expect(result).toEqual(["book"]); 
 }); 
 
+// 5. Check password length 
+function isValidPassword(password) { 
+ return password.length >= 6; 
+} 
 test('returns true for valid password length', () => {  
-    const password = "password123"; 
-    const result = isValidPassword(password); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const password = "Mypassword21"; 
+ // Act 
+ const result = isValidPassword(password); 
+ // Assert 
+ expect(result).toBe(true); 
 }); 
 
-// STAGE 3 TESTS (5 per function)
 
-// isValidPassword
+
+
+// STAGE 3: Real QA Thinking (Create Your Own Tests)
+
+//  Function: isValidPassword 
+function isValidPassword(password) { 
+ return password.length >= 6; 
+}
 test('isValidPassword: positive case', () => { 
-    const password = "mypassword123"; 
-    const result = isValidPassword(password); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const password = "myfreedom2123"; 
+ // Act 
+ const result = isValidPassword(password); 
+ // Assert 
+ expect(result).toBe(true); 
 });
 test('isValidPassword: negative case', () => { 
-    const password = "abc"; 
-    const result = isValidPassword(password); 
-    expect(result).toBe(false); 
+ // Arrange 
+ const password = "Jer"; 
+ // Act 
+ const result = isValidPassword(password); 
+ // Assert 
+ expect(result).toBe(false); 
 });
 test('isValidPassword: boundary case', () => { 
-    const password = "123456"; 
-    const result = isValidPassword(password); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const password = "162123"; 
+ // Act 
+ const result = isValidPassword(password); 
+ // Assert 
+ expect(result).toBe(true); 
 });
 test('isValidPassword: edge case (empty string)', () => { 
-    const password = ""; 
-    const result = isValidPassword(password); 
-    expect(result).toBe(false); 
+ // Arrange 
+ const password = ""; 
+ // Act 
+ const result = isValidPassword(password); 
+ // Assert 
+ expect(result).toBe(false); 
 });
 test('isValidPassword: edge case (special characters)', () => { 
-    const password = "!@#$%^"; 
-    const result = isValidPassword(password); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const password = "!@#$%^"; 
+ // Act 
+ const result = isValidPassword(password); 
+ // Assert 
+ expect(result).toBe(true); 
 });
 
-// containsWord
+// Function: containsWord 
+function containsWord(sentence, word) { return sentence.includes(word); } 
 test('containsWord: positive case', () => { 
-    const sentence = "JavaScript is awesome"; 
-    const word = "awesome";
-    const result = containsWord(sentence, word); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const sentence = "JavaScript is amazing"; 
+ const word = "amazing";
+ // Act 
+ const result = containsWord(sentence, word); 
+ // Assert 
+ expect(result).toBe(true); 
 });
 test('containsWord: negative case', () => { 
-    const sentence = "JavaScript is awesome"; 
-    const word = "Python";
-    const result = containsWord(sentence, word); 
-    expect(result).toBe(false); 
+ // Arrange 
+ const sentence = "JavaScript is my favorite"; 
+ const word = "Python";
+ // Act 
+ const result = containsWord(sentence, word); 
+ // Assert 
+ expect(result).toBe(false); 
 });
 test('containsWord: boundary case (full sentence)', () => { 
-    const sentence = "Hello"; 
-    const word = "Hello";
-    const result = containsWord(sentence, word); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const sentence = "Valary"; 
+ const word = "Valary";
+ // Act 
+ const result = containsWord(sentence, word); 
+ // Assert 
+ expect(result).toBe(true); 
 });
 test('containsWord: edge case (case sensitivity)', () => { 
-    const sentence = "I love coding"; 
-    const word = "LOVE";
-    const result = containsWord(sentence, word); 
-    expect(result).toBe(false); 
+ // Arrange 
+ const sentence = "I love  Writing Poem"; 
+ const word = "LOVE";
+ // Act 
+ const result = containsWord(sentence, word); 
+ // Assert 
+ expect(result).toBe(false); 
 });
 test('containsWord: edge case (empty word)', () => { 
-    const sentence = "Hello"; 
-    const word = "";
-    const result = containsWord(sentence, word); 
-    expect(result).toBe(true); 
+ // Arrange 
+ const sentence = "Jerry"; 
+ const word = "";
+ // Act 
+ const result = containsWord(sentence, word); 
+ // Assert 
+ expect(result).toBe(true); 
 });
 
-// addItem
+//  Function: addItem 
+function addItem(arr, item) { 
+ arr.push(item); 
+ return arr; 
+} 
 test('addItem: positive case', () => { 
-    const arr = ["red", "blue"]; 
-    const item = "green";
-    const result = addItem(arr, item); 
-    expect(result).toEqual(["red", "blue", "green"]); 
+ // Arrange 
+ const arr = ["Helen", "Valary"]; 
+ const item = "Samri";
+ // Act 
+ const result = addItem(arr, item); 
+ // Assert 
+ expect(result).toEqual(["Helen", "Valary", "Samri"]); 
 });
 test('addItem: add to empty array', () => { 
-    const arr = []; 
-    const item = 1;
-    const result = addItem(arr, item); 
-    expect(result).toEqual([1]); 
+ // Arrange 
+ const arr = []; 
+ const item = 7;
+ // Act 
+ const result = addItem(arr, item); 
+ // Assert 
+ expect(result).toEqual([7]); 
 });
 test('addItem: boundary case (duplicate item)', () => { 
-    const arr = [10, 20]; 
-    const item = 10;
-    const result = addItem(arr, item); 
-    expect(result).toEqual([10, 20, 10]); 
+ // Arrange 
+ const arr = [10, 20]; 
+ const item = 10;
+ // Act 
+ const result = addItem(arr, item); 
+ // Assert 
+ expect(result).toEqual([10, 20, 10]); 
 });
 test('addItem: edge case (adding boolean)', () => { 
-    const arr = [1, 2]; 
-    const item = true;
-    const result = addItem(arr, item); 
-    expect(result).toEqual([1, 2, true]); 
+ // Arrange 
+ const arr = [1, 2]; 
+ const item = true;
+ // Act 
+ const result = addItem(arr, item); 
+ // Assert 
+ expect(result).toEqual([1, 2, true]); 
 });
 test('addItem: edge case (checking length)', () => { 
-    const arr = [5, 6, 7]; 
-    const item = 8;
-    const result = addItem(arr, item); 
-    expect(result.length).toBe(4); 
+ // Arrange 
+ const arr = [5, 6, 7,9]; 
+ const item = 11;
+ // Act 
+ const result = addItem(arr, item); 
+ // Assert 
+ expect(result.length).toBe(5); 
 });
